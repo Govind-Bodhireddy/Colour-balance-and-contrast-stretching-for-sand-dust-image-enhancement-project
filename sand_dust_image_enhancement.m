@@ -43,18 +43,6 @@ I4=rgb2hsv(I3);
 
 v1=adapthisteq(v);
 
-%adaptive sharpening
-
-[M,N]=size(s);
-L=[1,1,1;1,-8,1;1,1,1];
-v2=conv2(v1,L,"same");
-[M,N]=size(s);
-for i=1:M
-    for j=1:N
-        v3(i,j)=(5*v2(i,j))/((4*v2(i,j)^2)+1);
-    end
-end
-
 % streching saturation
 
 [M,N]=size(s);
@@ -72,5 +60,4 @@ I6=hsv2rgb(I5);
 subplot(2,2,4);
 imshow(I6);
 title("Enhanced Image");
-clear all;
 
